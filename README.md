@@ -173,3 +173,19 @@ nohup java -jar ./spring_security_v2/hw3_spring_security_v2/target/WordLadder-1.
 
 
 
+docker run \
+  --volume=/var/run/docker.sock:/var/run/docker.sock \
+  --volume=/var/lib/drone:/data \
+  --env=DRONE_GITHUB_SERVER=https://github.com \
+  --env=DRONE_GITHUB_CLIENT_ID=391b5a50223e595ccd86 \
+  --env=DRONE_GITHUB_CLIENT_SECRET=1536824b7946292a37433ca7cd71c37b507a0532 \
+  --env=DRONE_RUNNER_CAPACITY=2 \
+  --env=DRONE_SERVER_HOST=212.64.88.102 \
+  --env=DRONE_SERVER_PROTO=http \
+  --env=DRONE_TLS_AUTOCERT=true \
+  --publish=81:81 \
+  --publish=444:444 \
+  --restart=always \
+  --detach=true \
+  --name=drone \
+  drone/drone:0.8.0-rc.3
